@@ -6,6 +6,7 @@ public class Product {
     private Double price;
     private String name;
     private String category;
+    private String serviceInstance;
 
     public Product(String productId) {
         this.productId = productId;
@@ -44,5 +45,13 @@ public class Product {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getServiceInstance() {
+        return serviceInstance;
+    }
+
+    public void setServiceInstance(String serviceInstance) {
+        this.serviceInstance = serviceInstance;
     }
 }

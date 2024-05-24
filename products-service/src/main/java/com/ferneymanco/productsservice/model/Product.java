@@ -5,12 +5,14 @@ public class Product {
     private Double price;
     private String name;
     private String category;
+    private String serviceInstance;
 
-    public Product(String productId, Double price, String name, String category) {
+    public Product(String productId, Double price, String name, String category, String serviceInstance) {
         this.productId = productId;
         this.price = price;
         this.name = name;
         this.category = category;
+        this.serviceInstance = serviceInstance;
     }
 
     public String getProductId() {
@@ -43,5 +45,13 @@ public class Product {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getServiceInstance() {
+        return serviceInstance;
+    }
+
+    public void setServiceInstance(String serviceInstance) {
+        this.serviceInstance = serviceInstance;
     }
 }

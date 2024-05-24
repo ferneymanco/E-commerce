@@ -21,6 +21,7 @@ public class CheckoutService implements ICheckoutService {
             Double total = 0.0;
             for(String id: productIds){
                 Product product = productService.getProduct(id);
+                System.out.println("Request for "+product.getServiceInstance());
                 total += product.getPrice();
             }
             Checkout checkout = new Checkout("123","www.dominio.com/checkout?",total.toString(), List.of("credit_card","COD"));
