@@ -1,0 +1,21 @@
+spring:
+  config:
+    import: "optional:configserver:"
+  application:
+    name: gateway-service
+  cloud:
+    config:
+      discovery:
+        serviceId: config-server
+        enabled: true
+    gateway:
+      routes:
+      - id: checkout-service
+        uri: lb://checkout-service
+        predicates:
+        - Path=/checkout
+        filters:
+          - AddRequestHeader=X-Request-from, gateway
+          - AddResponseHeader=X-Response-res, done
+server:
+  port: 9000
