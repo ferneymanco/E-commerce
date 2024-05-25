@@ -1,0 +1,18 @@
+spring:
+  config:
+    import: "optional:configserver:"
+  application:
+  name: gateway
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        serviceId: gateway
+  gateway:
+    routes:
+      - id: checkout-service
+        uri: checkout-service
+        predicates:
+          - Path=/checkout
+server:
+  port: 9000
