@@ -3,12 +3,19 @@ spring:
     import: "optional:configserver:"
   application:
     name: gateway-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8000/realms/test_realm
   cloud:
     config:
       discovery:
         serviceId: config-server
         enabled: true
     gateway:
+      default-filters:
+        - TokenRelay=
       routes:
       - id: checkout-service
         uri: lb://checkout-service

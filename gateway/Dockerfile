@@ -1,0 +1,1 @@
+FROM: docker run quay.io/keycloak/keycloak start-dev
