@@ -18,6 +18,11 @@ public class CheckoutRestController {
         this.checkoutService = checkoutService;
     }
 
+    @GetMapping("/{id}")
+    public Checkout getCheckoutById(@PathVariable String id){
+        return new Checkout(id,"/my_checkout/123","14.5",List.of("efectivo","TC"));
+    }
+
     @GetMapping()
     public Checkout getCheckout(@RequestParam List<String> productIds,@RequestHeader("X-Request-from") String requestFrom, @RequestHeader() Map<String, String> headers){
         System.out.println("Enviado desde: "+requestFrom);
